@@ -238,6 +238,8 @@ namespace TimeTrackerWidget.forms
                         this.comboBoxPaymoTasks.Items.Add(c);
                         foreach (Task t in tl.Task)
                         {
+                            if (t.Complete)
+                                continue;
                             ComboBoxItem c2 = new ComboBoxItem();
                             c2.Selectable = true;
                             c2.Text = t.Name;

@@ -54,5 +54,7 @@ namespace TimeTrackerWidget.ExternalTrackers.Paymo
         public int Id { get; set; }
         [System.Xml.Serialization.XmlAttribute("name")]
         public string Name { get; set; }
+        [System.Xml.Serialization.XmlAttribute("complete")]
+        public bool Complete { get; set; }
     }
 }
