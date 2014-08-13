@@ -226,6 +226,8 @@ namespace TimeTrackerWidget.forms
             }
             else if (cb.SelectedItem != null && cb.SelectedItem is ComboBoxItem && ((ComboBoxItem)cb.SelectedItem).Selectable == true)
             {
+                this.comboBoxPaymoTasks.Items.Clear();
+
                 foreach (TaskList tl in ((Project)((ComboBoxItem)cb.SelectedItem).ObjectValue).Task_list)
                 {
                     if (tl.Task != null && tl.Task.Length > 0)
