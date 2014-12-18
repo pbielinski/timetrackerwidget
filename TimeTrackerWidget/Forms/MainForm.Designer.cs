@@ -150,8 +150,8 @@
             // panelRedmineWidget
             // 
             this.panelRedmineWidget.BackColor = System.Drawing.Color.Orange;
-            this.panelRedmineWidget.Controls.Add(this.button1);
             this.panelRedmineWidget.Controls.Add(this.pictureBox2);
+            this.panelRedmineWidget.Controls.Add(this.button1);
             this.panelRedmineWidget.Controls.Add(this.comboBoxRedmineActivity);
             this.panelRedmineWidget.Controls.Add(this.textBoxRedmineIssueNo);
             this.panelRedmineWidget.Controls.Add(this.label4);
@@ -176,6 +176,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::TimeTrackerWidget.Properties.Resources.redmine_fluid_icon;
             this.pictureBox2.Location = new System.Drawing.Point(10, 7);
             this.pictureBox2.Name = "pictureBox2";
@@ -231,6 +232,7 @@
             // 
             // pictureBoxPaymoLoad
             // 
+            this.pictureBoxPaymoLoad.BackColor = System.Drawing.Color.LawnGreen;
             this.pictureBoxPaymoLoad.Image = global::TimeTrackerWidget.Properties.Resources._8_0;
             this.pictureBoxPaymoLoad.Location = new System.Drawing.Point(41, 3);
             this.pictureBoxPaymoLoad.Name = "pictureBoxPaymoLoad";
@@ -242,7 +244,8 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::TimeTrackerWidget.Properties.Resources.paymo;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(10, 5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(25, 25);

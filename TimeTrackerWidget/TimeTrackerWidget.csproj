@@ -79,11 +79,9 @@
   <ItemGroup>
     <Compile Include="ExternalTrackers\ExternalTrackersManager.cs" />
     <Compile Include="ExternalTrackers\IExternalTrackers.cs" />
-    <Compile Include="ExternalTrackers\Paymo\Entry.cs" />
-    <Compile Include="ExternalTrackers\Paymo\Error.cs" />
-    <Compile Include="ExternalTrackers\Paymo\PaymoAPI.cs" />
-    <Compile Include="ExternalTrackers\Paymo\Projects.cs" />
-    <Compile Include="ExternalTrackers\Paymo\Token.cs" />
+    <Compile Include="ExternalTrackers\Paymo\Paymo3\Entry.cs" />
+    <Compile Include="ExternalTrackers\Paymo\Paymo3\PaymoAPI3.cs" />
+    <Compile Include="ExternalTrackers\Paymo\Paymo3\Projects.cs" />
     <Compile Include="ExternalTrackers\Redmine\RedmineAPI.cs" />
     <Compile Include="Utils\ProgramInfo.cs" />
     <Compile Include="Utils\RestClient.cs" />
@@ -192,6 +190,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\8-0.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

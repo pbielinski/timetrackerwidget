@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TimeTrackerWidget.ExternalTrackers.Paymo
+namespace TimeTrackerWidget.ExternalTrackers.Paymo3
 {
     [Serializable()]
     [System.Xml.Serialization.XmlRoot("response")]
@@ -14,9 +14,6 @@ namespace TimeTrackerWidget.ExternalTrackers.Paymo
 
         [System.Xml.Serialization.XmlElement("entry")]
         public Entry entry { get; set; }
-
-        [System.Xml.Serialization.XmlElement("error")]
-        public Error error { get; set; } 
     }
 
     [Serializable()]

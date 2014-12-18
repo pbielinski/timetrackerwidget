@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Collections.Generic;
 
 public enum HttpVerb
 {
@@ -58,11 +59,27 @@ namespace TimeTrackerWidget.Utils
 
         public string MakeRequest(string parameters, string ContentType)
         {
+            return this.MakeRequest(parameters, ContentType, null);
+        }
+
+        public string MakeRequest(string parameters, string ContentType, Dictionary<string, string> headers)
+        {
+
             var request = (HttpWebRequest)WebRequest.Create(EndPoint + parameters);
 
             request.Method = Method.ToString();
             request.ContentLength = 0;
             request.ContentType = this.ContentType;
+            request.Accept = "*/*";
+            request.Proxy = null;
+
+            if (headers != null)
+            {
+                foreach (KeyValuePair<string, string> item in headers)
+                {
+                    request.Headers.Add(item.Key, item.Value);
+                }
+            }
 
             if (!string.IsNullOrEmpty(PostData) && Method == HttpVerb.POST)
             {

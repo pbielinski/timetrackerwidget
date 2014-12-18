@@ -42,8 +42,6 @@
             this.textBoxPaymoPassword = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxPaymoUsername = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBoxPaymoApiKey = new System.Windows.Forms.TextBox();
             this.checkBoxPaymoEnable = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -152,20 +150,18 @@
             this.groupBox4.Controls.Add(this.textBoxPaymoPassword);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.textBoxPaymoUsername);
-            this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.textBoxPaymoApiKey);
             this.groupBox4.Controls.Add(this.checkBoxPaymoEnable);
             this.groupBox4.Location = new System.Drawing.Point(9, 188);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(571, 100);
             this.groupBox4.TabIndex = 10;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Paymo";
+            this.groupBox4.Text = "Paymo3";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(264, 71);
+            this.label8.Location = new System.Drawing.Point(8, 71);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(36, 13);
             this.label8.TabIndex = 13;
@@ -173,7 +169,7 @@
             // 
             // textBoxPaymoPassword
             // 
-            this.textBoxPaymoPassword.Location = new System.Drawing.Point(319, 68);
+            this.textBoxPaymoPassword.Location = new System.Drawing.Point(67, 68);
             this.textBoxPaymoPassword.Name = "textBoxPaymoPassword";
             this.textBoxPaymoPassword.PasswordChar = '*';
             this.textBoxPaymoPassword.Size = new System.Drawing.Size(170, 20);
@@ -182,7 +178,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 71);
+            this.label6.Location = new System.Drawing.Point(8, 45);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(33, 13);
             this.label6.TabIndex = 11;
@@ -190,26 +186,10 @@
             // 
             // textBoxPaymoUsername
             // 
-            this.textBoxPaymoUsername.Location = new System.Drawing.Point(67, 68);
+            this.textBoxPaymoUsername.Location = new System.Drawing.Point(67, 42);
             this.textBoxPaymoUsername.Name = "textBoxPaymoUsername";
             this.textBoxPaymoUsername.Size = new System.Drawing.Size(170, 20);
             this.textBoxPaymoUsername.TabIndex = 10;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 45);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 13);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Klucz API";
-            // 
-            // textBoxPaymoApiKey
-            // 
-            this.textBoxPaymoApiKey.Location = new System.Drawing.Point(67, 42);
-            this.textBoxPaymoApiKey.Name = "textBoxPaymoApiKey";
-            this.textBoxPaymoApiKey.Size = new System.Drawing.Size(498, 20);
-            this.textBoxPaymoApiKey.TabIndex = 4;
             // 
             // checkBoxPaymoEnable
             // 
@@ -218,9 +198,9 @@
             this.checkBoxPaymoEnable.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxPaymoEnable.Location = new System.Drawing.Point(9, 19);
             this.checkBoxPaymoEnable.Name = "checkBoxPaymoEnable";
-            this.checkBoxPaymoEnable.Size = new System.Drawing.Size(93, 17);
+            this.checkBoxPaymoEnable.Size = new System.Drawing.Size(99, 17);
             this.checkBoxPaymoEnable.TabIndex = 2;
-            this.checkBoxPaymoEnable.Text = "Włącz Paymo";
+            this.checkBoxPaymoEnable.Text = "Włącz Paymo3";
             this.checkBoxPaymoEnable.UseVisualStyleBackColor = true;
             // 
             // groupBox3
@@ -441,8 +421,6 @@
         private System.Windows.Forms.TextBox textBoxPaymoPassword;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxPaymoUsername;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBoxPaymoApiKey;
         private System.Windows.Forms.CheckBox checkBoxPaymoEnable;
     }
 }

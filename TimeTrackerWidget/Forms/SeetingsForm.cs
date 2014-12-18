@@ -25,7 +25,6 @@ namespace TimeTrackerWidget.forms
                 TimeTrackerWidget.Properties.Settings.Default.RedmineEnable = this.checkBoxRedmineEnable.Checked;
 
                 TimeTrackerWidget.Properties.Settings.Default.PaymoEnabled = this.checkBoxPaymoEnable.Checked;
-                TimeTrackerWidget.Properties.Settings.Default.PaymoAPI = this.textBoxPaymoApiKey.Text;
                 TimeTrackerWidget.Properties.Settings.Default.PaymoLogin = this.textBoxPaymoUsername.Text;
                 TimeTrackerWidget.Properties.Settings.Default.PaymoPassword = this.textBoxPaymoPassword.Text;
 
@@ -45,7 +44,6 @@ namespace TimeTrackerWidget.forms
             this.checkBoxRedmineEnable.Checked = TimeTrackerWidget.Properties.Settings.Default.RedmineEnable;
 
             this.checkBoxPaymoEnable.Checked = TimeTrackerWidget.Properties.Settings.Default.PaymoEnabled;
-            this.textBoxPaymoApiKey.Text = TimeTrackerWidget.Properties.Settings.Default.PaymoAPI;
             this.textBoxPaymoUsername.Text = TimeTrackerWidget.Properties.Settings.Default.PaymoLogin;
             this.textBoxPaymoPassword.Text = TimeTrackerWidget.Properties.Settings.Default.PaymoPassword;
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Windows.Forms;
 using TimeTrackerWidget.forms;
 
@@ -19,7 +20,11 @@ namespace TimeTrackerWidget
                 SingleInstance.ShowFirstInstance();
                 return;
             }
-            
+
+            ServicePointManager
+             .ServerCertificateValidationCallback +=
+             (sender, cert, chain, sslPolicyErrors) => true;
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 

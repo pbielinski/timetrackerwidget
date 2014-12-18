@@ -7,7 +7,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using TimeTrackerWidget.ExternalTrackers.Paymo;
+using TimeTrackerWidget.ExternalTrackers.Paymo.Paymo3;
+using TimeTrackerWidget.ExternalTrackers.Paymo3;
 using TimeTrackerWidget.ExternalTrackers.Redmine;
 
 namespace TimeTrackerWidget.forms
@@ -128,7 +129,7 @@ namespace TimeTrackerWidget.forms
                 if (TimeTrackerWidget.Properties.Settings.Default.PaymoEnabled &&
                     (TimerStop - TimerStart).TotalMinutes >= 1 &&
                     this.comboBoxPaymoTasks.SelectedIndex >= 0)
-                    PaymoAPI.Instance.AddEntry(TimerStart, TimerStop, ((Task)((ComboBoxItem)this.comboBoxPaymoTasks.SelectedItem).ObjectValue).Id, this.commentTextBox.Text);
+                    PaymoAPI3.Instance.AddEntry(TimerStart, TimerStop, ((Task)((ComboBoxItem)this.comboBoxPaymoTasks.SelectedItem).ObjectValue).Id, this.commentTextBox.Text);
 
                 this.runTaskButton.ImageIndex = 0;
                 this.runTaskButton.Text = "START";
@@ -284,11 +285,9 @@ namespace TimeTrackerWidget.forms
         {
             if (TimeTrackerWidget.Properties.Settings.Default.PaymoEnabled)
             {
-                PaymoAPI.Instance.APIKEY = TimeTrackerWidget.Properties.Settings.Default.PaymoAPI;
-                PaymoAPI.Instance.User = TimeTrackerWidget.Properties.Settings.Default.PaymoLogin;
-                PaymoAPI.Instance.Password = TimeTrackerWidget.Properties.Settings.Default.PaymoPassword;
-                PaymoAPI.Instance.Token = TimeTrackerWidget.Properties.Settings.Default.PaymoLastToken;
-                e.Result = PaymoAPI.Instance.GetProjects();   
+                PaymoAPI3.Instance.User = TimeTrackerWidget.Properties.Settings.Default.PaymoLogin;
+                PaymoAPI3.Instance.Password = TimeTrackerWidget.Properties.Settings.Default.PaymoPassword;
+                e.Result = PaymoAPI3.Instance.GetProjects();   
             }
         }
 
@@ -303,11 +302,11 @@ namespace TimeTrackerWidget.forms
 
                 Projects p = (Projects)e.Result;
 
-                if (p != null && p.error == null)
+                if (p != null)
                 {
                     foreach (Project pr in p.Project)
                     {
-                        if (!pr.Retired)
+                        if (pr.Active)
                         {
                             ComboBoxItem c = new ComboBoxItem();
                             c.Selectable = true;
@@ -343,7 +342,7 @@ namespace TimeTrackerWidget.forms
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (TimeTrackerWidget.Properties.Settings.Default.PaymoEnabled)
-                Process.Start("https://app.paymo.biz");
+                Process.Start("https://app.paymoapp.com");
         }
 
         private void button1_Click(object sender, EventArgs e)
