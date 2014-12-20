@@ -21,6 +21,17 @@ namespace TimeTrackerWidget
                 return;
             }
 
+            System.Reflection.Assembly a = System.Reflection.Assembly.GetExecutingAssembly();
+            Version appVersion = a.GetName().Version;
+            string appVersionString = appVersion.ToString();
+
+            if (Properties.Settings.Default.ApplicationVersion != appVersion.ToString())
+            {
+                Properties.Settings.Default.Upgrade();
+                Properties.Settings.Default.ApplicationVersion = appVersionString;
+                Properties.Settings.Default.Save();
+            }
+
             ServicePointManager
              .ServerCertificateValidationCallback +=
              (sender, cert, chain, sslPolicyErrors) => true;

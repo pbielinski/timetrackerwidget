@@ -79,9 +79,9 @@ namespace TimeTrackerWidget.ExternalTrackers.Paymo.Paymo3
                     result = response;
                 }
             }
-            catch (WebException ex)
+            catch (WebException)
             {
-                throw ex;
+                
             }
             catch (Exception)
             {

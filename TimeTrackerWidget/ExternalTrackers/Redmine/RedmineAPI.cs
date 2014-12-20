@@ -66,9 +66,9 @@ namespace TimeTrackerWidget.ExternalTrackers.Redmine
                 string response = client.MakeRequest();
                 result = true;
             }
-            catch (WebException ex)
+            catch (WebException)
             {
-                MessageBox.Show(ex.Message);
+                //
             }
             catch (Exception ex)
             {
