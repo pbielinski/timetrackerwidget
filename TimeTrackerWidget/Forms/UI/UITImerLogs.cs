@@ -88,18 +88,24 @@ namespace TimeTrackerWidget.Forms
                             Entry entry = new Entry();
                             entry.StartTime = lastEndTime.Value.ToUniversalTime();
                             entry.EndTime = item.StartTime.ToUniversalTime();
-                            AddLogEntry(entry, lastEndTime.Value.ToString("HH:mm"), "", UIEntryLogRow.ImageRowEnum.NONE, Color.Orange);
+                            if (lastRow != null)
+                                AddLogEntry(entry, lastEndTime.Value.ToString("HH:mm"), "", UIEntryLogRow.ImageRowEnum.NONE, Color.Orange);
+                            else
+                                AddLogEntry(entry, lastEndTime.Value.ToString("HH:mm"), "", UIEntryLogRow.ImageRowEnum.NONE, i);
                             i++;
                         }
 
-                        while (hour + 1 < startTime.Hour)
+                        while (hour < startTime.Hour)
                         {
-                            hour++;
                             Entry entry = new Entry();
-                            entry.StartTime = startTime.ToUniversalTime();
-                            entry.EndTime = startTime.AddHours(1).ToUniversalTime();
-                            lastRow = AddLogEntry(entry, hour.ToString().PadLeft(2, '0') + ":00", "", UIEntryLogRow.ImageRowEnum.NONE, Color.Orange);
+                            entry.StartTime = this.dateTimePickerEntry.Value.Date.AddHours(hour);
+                            entry.EndTime = this.dateTimePickerEntry.Value.Date.AddHours(hour + 1);
+                            if (lastRow != null)
+                                AddLogEntry(entry, hour.ToString().PadLeft(2, '0') + ":00", "", UIEntryLogRow.ImageRowEnum.NONE, Color.Orange);
+                            else
+                                AddLogEntry(entry, hour.ToString().PadLeft(2, '0') + ":00", "", UIEntryLogRow.ImageRowEnum.NONE, i);
                             i++;
+                            hour++;
                         }
 
                         lastRow = AddLogEntry(item, startTime.ToString("HH:mm"), (item.Description != string.Empty ? item.Description + " " : "") + "(" + item.Task.Name + ")", UIEntryLogRow.ImageRowEnum.TOP, i++);
@@ -112,7 +118,7 @@ namespace TimeTrackerWidget.Forms
                         endConflict = false;
                     }
 
-                    hour = endTime.Hour + (endTime.Minute == 0 ? 0 : 1);
+                    hour = endTime.Hour + 1;
                     lastEndTime = endTime;
                 }
 
