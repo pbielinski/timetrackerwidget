@@ -37,6 +37,14 @@ namespace TimeTrackerWidget.ExternalTrackers.Paymo.Paymo3
             return (Projects)this.RetrieveResponse("projects", "include=tasklists,tasklists.tasks&where=active%3Dtrue", typeof(Projects), HttpVerb.GET);
         }
 
+        public Entries GetEntriesPerDay(DateTime date)
+        {
+            string timeFrom = date.ToString("yyyy-MM-ddT") + "00:00:00.000Z";
+            string timeTo = date.ToString("yyyy-MM-ddT") + "23:59:59.000Z";
+
+            return (Entries)this.RetrieveResponse("entries", "include=task.name&where=time_interval in (\"" + timeFrom + "\",\"" + timeTo + "\")", typeof(Entries), HttpVerb.GET);
+        }
+
         private object RetrieveResponse(string action, string parameters, Type responseType, HttpVerb method)
         {
             return RetrieveResponse(action, parameters, responseType, method, "text/xml");
@@ -55,11 +63,11 @@ namespace TimeTrackerWidget.ExternalTrackers.Paymo.Paymo3
                 headers.Add("Authorization", "Basic " + Convert.ToBase64String(Encoding.GetEncoding("UTF-8").GetBytes(this.User + ":" + this.Password)));
 
 
-                if (method == HttpVerb.GET)
+                if (method == HttpVerb.GET || method == HttpVerb.DELETE)
                 {
                     client.EndPoint = URL + @"/" + action + (parameters != string.Empty ? "?" + parameters : "");
                 }
-                else if (method == HttpVerb.POST)
+                else if (method == HttpVerb.POST || method == HttpVerb.PUT)
                 {
                     client.EndPoint = URL + @"/" + action;
                     client.PostData = parameters;
@@ -79,9 +87,9 @@ namespace TimeTrackerWidget.ExternalTrackers.Paymo.Paymo3
                     result = response;
                 }
             }
-            catch (WebException)
+            catch (WebException ex)
             {
-                
+                Console.WriteLine(ex.Message);
             }
             catch (Exception)
             {
@@ -98,9 +106,32 @@ namespace TimeTrackerWidget.ExternalTrackers.Paymo.Paymo3
         public void AddEntry(DateTime start, DateTime end, int taskId, string message)
         {
             this.RetrieveResponse("entries",
-                    "{\"date\":\"" + DateTime.Now.ToString("yyyy-MM-dd") + "\",\"start_time\":\"" + start.ToString("yyyy-MM-ddTHH:mm") + ":00+01:00\",\"end_time\":\"" + end.ToString("yyyy-MM-ddTHH:mm") +
-                    ":00+01:00\",\"task_id\":\"" + taskId + "\",\"description\":\"" + System.Web.HttpUtility.UrlEncode(message) + "\"}",
-                    null, HttpVerb.POST, "application/json");
+                   "{\"start_time\":\"" + start.ToString("yyyy-MM-ddTHH:mm") + ":00+01:00\",\"end_time\":\"" + end.ToString("yyyy-MM-ddTHH:mm") +
+                   ":00+01:00\",\"task_id\":\"" + taskId + "\",\"description\":\"" + message + "\"}",
+                   null, HttpVerb.POST, "application/json");
+        }
+
+        public void UpdateEntry(DateTime start, DateTime end, int taskId, string message, int entryId)
+        {
+            if (entryId == 0)
+            {
+                this.AddEntry(start, end, taskId, message);
+            }
+            else
+            {
+                this.RetrieveResponse(@"entries/" + entryId,
+                        "{\"duration\":\"" + end.Subtract(start).TotalSeconds + "\",\"start_time\":\"" + start.ToString("yyyy-MM-ddTHH:mm") + ":00+01:00\",\"end_time\":\"" + end.ToString("yyyy-MM-ddTHH:mm") +
+                        ":00+01:00\",\"task_id\":\"" + taskId + "\",\"description\":\"" + message + "\",\"id\":\"" + entryId.ToString() + "\"}",
+                        null, HttpVerb.PUT, "application/json");
+            }
+        }
+
+        public void DeleteEntry(int entryId)
+        {
+            if (entryId > 0)
+            {
+                this.RetrieveResponse(@"entries/" + entryId, "", null, HttpVerb.DELETE, "application/json");
+            }
         }
     }
 }

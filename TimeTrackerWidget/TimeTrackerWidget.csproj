@@ -83,6 +83,30 @@
     <Compile Include="ExternalTrackers\Paymo\Paymo3\PaymoAPI3.cs" />
     <Compile Include="ExternalTrackers\Paymo\Paymo3\Projects.cs" />
     <Compile Include="ExternalTrackers\Redmine\RedmineAPI.cs" />
+    <Compile Include="Forms\UI\DeleteMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UI\DeleteMessageBox.Designer.cs">
+      <DependentUpon>DeleteMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UI\UIEventEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\UI\UIEventEdit.Designer.cs">
+      <DependentUpon>UIEventEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UI\UITImerLogs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\UI\UITImerLogs.Designer.cs">
+      <DependentUpon>UITImerLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UI\UIEntryLogRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\UI\UIEntryLogRow.Designer.cs">
+      <DependentUpon>UIEntryLogRow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\ProgramInfo.cs" />
     <Compile Include="Utils\RestClient.cs" />
     <Compile Include="Forms\MainForm.cs">
@@ -116,6 +140,18 @@
     <EmbeddedResource Include="Forms\SeetingsForm.resx">
       <DependentUpon>SeetingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UI\DeleteMessageBox.resx">
+      <DependentUpon>DeleteMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UI\UIEventEdit.resx">
+      <DependentUpon>UIEventEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UI\UITImerLogs.resx">
+      <DependentUpon>UITImerLogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UI\UIEntryLogRow.resx">
+      <DependentUpon>UIEntryLogRow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -193,6 +229,57 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1rightarrow2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1420406156_play-circle-full-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1420406165_nav-arrow-right-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1420406174_stopwatch-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1420406020_list-rounded-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1420405875_sync-01-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bottom_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\full_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1420417374_bin-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1420417370_checkmark-rounded-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plusrounded32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrowleft0132.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrowright0132.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

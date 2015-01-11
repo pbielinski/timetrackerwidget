@@ -37,8 +37,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.commentTextBox = new System.Windows.Forms.RichTextBox();
             this.panelRedmineWidget = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.comboBoxRedmineActivity = new System.Windows.Forms.ComboBox();
             this.textBoxRedmineIssueNo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -62,6 +62,12 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.close = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorkerPaymoProjects = new System.ComponentModel.BackgroundWorker();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonTimerLogs = new System.Windows.Forms.Button();
+            this.buttonTimer = new System.Windows.Forms.Button();
+            this.uiEventEdit1 = new TimeTrackerWidget.Forms.UI.UIEventEdit();
+            this.uitImerLogs = new TimeTrackerWidget.Forms.UITImerLogs();
             this.panelAll.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.panelMainTop.SuspendLayout();
@@ -74,16 +80,19 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelAll
             // 
             this.panelAll.Controls.Add(this.panelMain);
+            this.panelAll.Controls.Add(this.uitImerLogs);
             this.panelAll.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelAll.Location = new System.Drawing.Point(0, 24);
             this.panelAll.Margin = new System.Windows.Forms.Padding(0);
             this.panelAll.Name = "panelAll";
-            this.panelAll.Size = new System.Drawing.Size(338, 201);
+            this.panelAll.Size = new System.Drawing.Size(338, 282);
             this.panelAll.TabIndex = 1;
             // 
             // panelMain
@@ -95,7 +104,7 @@
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Margin = new System.Windows.Forms.Padding(0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(338, 201);
+            this.panelMain.Size = new System.Drawing.Size(338, 282);
             this.panelMain.TabIndex = 0;
             // 
             // panelMainTop
@@ -106,7 +115,7 @@
             this.panelMainTop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMainTop.Location = new System.Drawing.Point(0, 0);
             this.panelMainTop.Name = "panelMainTop";
-            this.panelMainTop.Size = new System.Drawing.Size(338, 159);
+            this.panelMainTop.Size = new System.Drawing.Size(338, 240);
             this.panelMainTop.TabIndex = 11;
             // 
             // panelComment
@@ -116,7 +125,7 @@
             this.panelComment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelComment.Location = new System.Drawing.Point(0, 72);
             this.panelComment.Name = "panelComment";
-            this.panelComment.Size = new System.Drawing.Size(338, 87);
+            this.panelComment.Size = new System.Drawing.Size(338, 168);
             this.panelComment.TabIndex = 10;
             // 
             // label6
@@ -143,7 +152,7 @@
             this.commentTextBox.MaxLength = 255;
             this.commentTextBox.Name = "commentTextBox";
             this.commentTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.commentTextBox.Size = new System.Drawing.Size(319, 61);
+            this.commentTextBox.Size = new System.Drawing.Size(319, 142);
             this.commentTextBox.TabIndex = 9;
             this.commentTextBox.Text = "";
             // 
@@ -161,19 +170,6 @@
             this.panelRedmineWidget.Size = new System.Drawing.Size(338, 36);
             this.panelRedmineWidget.TabIndex = 9;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Wingdings 3", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.button1.Location = new System.Drawing.Point(159, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(31, 27);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "u";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -184,6 +180,19 @@
             this.pictureBox2.TabIndex = 22;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Wingdings 3", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.button1.Image = global::TimeTrackerWidget.Properties.Resources.navarrowright;
+            this.button1.Location = new System.Drawing.Point(159, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(31, 27);
+            this.button1.TabIndex = 23;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBoxRedmineActivity
             // 
@@ -284,7 +293,7 @@
             this.tableLayoutPanel1.Controls.Add(this.labelTimer, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.runTaskButton, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 159);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 240);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -325,8 +334,8 @@
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "player_play.png");
-            this.imageList1.Images.SetKeyName(1, "noatunstop.png");
+            this.imageList1.Images.SetKeyName(0, "1420406368_play-circle-full-24.png");
+            this.imageList1.Images.SetKeyName(1, "1420406397_stop-24.png");
             // 
             // menuStrip1
             // 
@@ -409,13 +418,99 @@
             this.backgroundWorkerPaymoProjects.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorkerPaymoProjects.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tableLayoutPanel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 306);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(338, 50);
+            this.panel1.TabIndex = 3;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.Gainsboro;
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.buttonTimerLogs, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonTimer, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(338, 50);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // buttonTimerLogs
+            // 
+            this.buttonTimerLogs.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonTimerLogs.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonTimerLogs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonTimerLogs.FlatAppearance.BorderSize = 0;
+            this.buttonTimerLogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTimerLogs.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonTimerLogs.Image = global::TimeTrackerWidget.Properties.Resources.listrounded;
+            this.buttonTimerLogs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonTimerLogs.Location = new System.Drawing.Point(169, 0);
+            this.buttonTimerLogs.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonTimerLogs.Name = "buttonTimerLogs";
+            this.buttonTimerLogs.Size = new System.Drawing.Size(169, 50);
+            this.buttonTimerLogs.TabIndex = 1;
+            this.buttonTimerLogs.Text = "Ewidencja\r\nczasu";
+            this.buttonTimerLogs.UseVisualStyleBackColor = false;
+            this.buttonTimerLogs.Click += new System.EventHandler(this.buttonTimerLogs_Click);
+            // 
+            // buttonTimer
+            // 
+            this.buttonTimer.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonTimer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonTimer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonTimer.FlatAppearance.BorderSize = 0;
+            this.buttonTimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTimer.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonTimer.Image = global::TimeTrackerWidget.Properties.Resources.stopwatch;
+            this.buttonTimer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonTimer.Location = new System.Drawing.Point(0, 0);
+            this.buttonTimer.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonTimer.Name = "buttonTimer";
+            this.buttonTimer.Size = new System.Drawing.Size(169, 50);
+            this.buttonTimer.TabIndex = 0;
+            this.buttonTimer.Text = "Timer";
+            this.buttonTimer.UseVisualStyleBackColor = false;
+            this.buttonTimer.Click += new System.EventHandler(this.buttonTimer_Click);
+            // 
+            // uiEventEdit1
+            // 
+            this.uiEventEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiEventEdit1.Location = new System.Drawing.Point(0, 24);
+            this.uiEventEdit1.Name = "uiEventEdit1";
+            this.uiEventEdit1.Size = new System.Drawing.Size(338, 282);
+            this.uiEventEdit1.TabIndex = 4;
+            this.uiEventEdit1.Visible = false;
+            this.uiEventEdit1.OnSaveClick += new System.EventHandler(this.uiEventEdit1_OnSaveClick);
+            this.uiEventEdit1.OnDeleteClick += new System.EventHandler(this.uiEventEdit1_OnDeleteClick);
+            this.uiEventEdit1.OnCancelClick += new System.EventHandler(this.uiEventEdit1_OnCancelClick);
+            // 
+            // uitImerLogs
+            // 
+            this.uitImerLogs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uitImerLogs.Location = new System.Drawing.Point(0, 0);
+            this.uitImerLogs.Name = "uitImerLogs";
+            this.uitImerLogs.Size = new System.Drawing.Size(338, 282);
+            this.uitImerLogs.TabIndex = 3;
+            this.uitImerLogs.OnRowClick += new TimeTrackerWidget.Forms.UI.UIEntryLogRow.EventClick(this.uitImerLogs_OnRowClick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(338, 225);
+            this.ClientSize = new System.Drawing.Size(338, 356);
+            this.Controls.Add(this.uiEventEdit1);
             this.Controls.Add(this.panelAll);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
@@ -438,6 +533,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -477,6 +574,12 @@
         private System.ComponentModel.BackgroundWorker backgroundWorkerPaymoProjects;
         private System.Windows.Forms.PictureBox pictureBoxPaymoLoad;
         private System.Windows.Forms.Button button1;
+        private Forms.UITImerLogs uitImerLogs;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button buttonTimerLogs;
+        private System.Windows.Forms.Button buttonTimer;
+        private Forms.UI.UIEventEdit uiEventEdit1;
     }
 }
 

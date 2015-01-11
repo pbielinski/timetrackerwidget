@@ -81,7 +81,7 @@ namespace TimeTrackerWidget.Utils
                 }
             }
 
-            if (!string.IsNullOrEmpty(PostData) && Method == HttpVerb.POST)
+            if (!string.IsNullOrEmpty(PostData) && (Method == HttpVerb.POST || Method == HttpVerb.PUT))
             {
                 if(ContentType != "")
                     request.ContentType = ContentType;

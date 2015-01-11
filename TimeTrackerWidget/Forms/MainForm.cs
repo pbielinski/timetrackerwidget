@@ -43,6 +43,8 @@ namespace TimeTrackerWidget.forms
             this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - this.Width, Screen.PrimaryScreen.WorkingArea.Height - this.Height);
             Timer = 0;
             ReloadSettings();
+
+            this.ShowMainPanel(this.panelMain);
         }
 
         public void ReloadSettings()
@@ -53,8 +55,23 @@ namespace TimeTrackerWidget.forms
 
         private void LoadPaymo()
         {
-            pictureBoxPaymoLoad.Visible = true;
-            backgroundWorkerPaymoProjects.RunWorkerAsync();
+            if (TimeTrackerWidget.Properties.Settings.Default.PaymoEnabled)
+            {
+                this.uiEventEdit1.LoadPaymo();
+                this.panelPaymoWidget.Enabled = true;
+                if (!backgroundWorkerPaymoProjects.IsBusy)
+                {
+                    pictureBoxPaymoLoad.Visible = true;
+                    backgroundWorkerPaymoProjects.RunWorkerAsync();
+                }
+                this.buttonTimerLogs.Enabled = true;
+            }
+            else
+            {
+                this.panelPaymoWidget.Enabled = false;
+                this.ShowMainPanel(this.panelMain);
+                this.buttonTimerLogs.Enabled = false;
+            }
         }
 
         private void SelectFirstPaymo(ComboBox cb)
@@ -84,7 +101,9 @@ namespace TimeTrackerWidget.forms
                 comboBoxRedmineActivity.SelectedIndex = 0;
             }
             else
+            {
                 this.panelRedmineWidget.Enabled = false;
+            }
         }
 
         private void timerRunnerTask_Tick(object sender, EventArgs e)
@@ -229,6 +248,11 @@ namespace TimeTrackerWidget.forms
             {
                 this.comboBoxPaymoTasks.Items.Clear();
 
+                Array.Sort(((Project)((ComboBoxItem)cb.SelectedItem).ObjectValue).Task_list, delegate(TaskList t1, TaskList t2)
+                {
+                    return t1.Name.CompareTo(t2.Name);
+                });
+
                 foreach (TaskList tl in ((Project)((ComboBoxItem)cb.SelectedItem).ObjectValue).Task_list)
                 {
                     if (tl.Task != null && tl.Task.Length > 0)
@@ -360,6 +384,62 @@ namespace TimeTrackerWidget.forms
                 if (int.TryParse(this.textBoxRedmineIssueNo.Text, out issueNo))
                     Process.Start(TimeTrackerWidget.Properties.Settings.Default.RedmineURL + @"/issues/" + issueNo);
             }
+        }
+
+        private void buttonTimer_Click(object sender, EventArgs e)
+        {
+            this.ShowMainPanel(this.panelMain);
+        }
+
+        private void ShowMainPanel(Control control)
+        {
+            this.buttonTimer.BackColor = control == this.panelMain ? Color.LightSkyBlue : Color.LightSlateGray;
+            this.buttonTimerLogs.BackColor = control == this.uitImerLogs ? Color.LightSkyBlue : Color.LightSlateGray;
+
+            foreach (Control c in this.panelAll.Controls)
+                c.Visible = c == control;
+        }
+
+        private void buttonTimerLogs_Click(object sender, EventArgs e)
+        {
+            this.uitImerLogs.RefreshListEvents();
+            this.ShowMainPanel(this.uitImerLogs);
+        }
+
+        public void ShowEditEvent(Entry entry)
+        {
+            this.uiEventEdit1.SetData(entry);
+            this.uiEventEdit1.Visible = true;
+            this.panelAll.Visible = false;
+            this.panel1.Visible = false;
+        }
+
+        private void uitImerLogs_OnRowClick(Entry entry)
+        {
+            this.ShowEditEvent(entry);
+        }
+
+        private void uiEventEdit1_OnSaveClick(object sender, EventArgs e)
+        {
+            this.uiEventEdit1.Visible = false;
+            this.panelAll.Visible = true;
+            this.panel1.Visible = true;
+            this.uitImerLogs.RefreshListEvents();
+        }
+
+        private void uiEventEdit1_OnDeleteClick(object sender, EventArgs e)
+        {
+            this.uiEventEdit1.Visible = false;
+            this.panelAll.Visible = true;
+            this.panel1.Visible = true;
+            this.uitImerLogs.RefreshListEvents();
+        }
+
+        private void uiEventEdit1_OnCancelClick(object sender, EventArgs e)
+        {
+            this.uiEventEdit1.Visible = false;
+            this.panelAll.Visible = true;
+            this.panel1.Visible = true;
         }
     }
 }
