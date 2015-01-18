@@ -93,6 +93,16 @@ namespace TimeTrackerWidget.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _continue {
+            get {
+                object obj = ResourceManager.GetObject("_continue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrowleft0132 {
             get {
                 object obj = ResourceManager.GetObject("arrowleft0132", resourceCulture);
@@ -147,6 +157,16 @@ namespace TimeTrackerWidget.Properties {
             get {
                 object obj = ResourceManager.GetObject("clock_on", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap continue_red {
+            get {
+                object obj = ResourceManager.GetObject("continue_red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

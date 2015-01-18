@@ -12,7 +12,7 @@ namespace TimeTrackerWidget.Forms.UI
 {
     public partial class UIEntryLogRow : UserControl
     {
-        private Entry entry = null;
+        public Entry entry = null;
 
         public delegate void EventClick(Entry entry);
 
@@ -26,7 +26,8 @@ namespace TimeTrackerWidget.Forms.UI
             LINE,
             TOP_RED,
             BOTTOM_RED,
-            LINE_RED
+            LINE_RED,
+            CONTINUE
         }
 
         public UIEntryLogRow()
@@ -70,6 +71,9 @@ namespace TimeTrackerWidget.Forms.UI
                     break;
                 case ImageRowEnum.LINE_RED:
                     this.pictureBox1.Image = TimeTrackerWidget.Properties.Resources.full_red;
+                    break;
+                case ImageRowEnum.CONTINUE:
+                    this.pictureBox1.Image = TimeTrackerWidget.Properties.Resources._continue;
                     break;
             }
         }

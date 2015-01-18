@@ -74,7 +74,7 @@ namespace TimeTrackerWidget.Forms
 
                     if (!conflict)
                     {
-                        if (lastEndTime.HasValue)
+                        if (lastEndTime.HasValue && lastEndTime.Value != startTime)
                         {
                             Entry entry = new Entry();
                             entry.StartTime = lastEndTime.Value.ToUniversalTime();
@@ -108,7 +108,9 @@ namespace TimeTrackerWidget.Forms
                             hour++;
                         }
 
-                        lastRow = AddLogEntry(item, startTime.ToString("HH:mm"), (item.Description != string.Empty ? item.Description + " " : "") + "(" + item.Task.Name + ")", UIEntryLogRow.ImageRowEnum.TOP, i++);
+                        lastRow = AddLogEntry(item, startTime.ToString("HH:mm"), (item.Description != string.Empty ? item.Description + " " : "") + "(" + item.Task.Name + ")", 
+                            (lastRow != null && lastRow.entry.Id > 0 && lastRow.entry.EndTime.ToLocalTime() == startTime ? 
+                            UIEntryLogRow.ImageRowEnum.CONTINUE : UIEntryLogRow.ImageRowEnum.TOP), i++);
                     }
                     else
                     {
