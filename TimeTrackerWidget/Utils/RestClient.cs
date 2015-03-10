@@ -70,7 +70,13 @@ namespace TimeTrackerWidget.Utils
             request.Method = Method.ToString();
             request.ContentLength = 0;
             request.ContentType = this.ContentType;
-            request.Accept = "*/*";
+            if (headers.ContainsKey("Accept"))
+            {
+                request.Accept = headers["Accept"];
+                headers.Remove("Accept");
+            }
+            else
+                request.Accept = "*/*";
             request.Proxy = null;
 
             if (headers != null)

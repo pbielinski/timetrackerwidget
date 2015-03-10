@@ -61,6 +61,7 @@ namespace TimeTrackerWidget.ExternalTrackers.Paymo.Paymo3
             {
                 Dictionary<string, string> headers = new Dictionary<string, string>();
                 headers.Add("Authorization", "Basic " + Convert.ToBase64String(Encoding.GetEncoding("UTF-8").GetBytes(this.User + ":" + this.Password)));
+                headers.Add("Accept", "text/xml");
 
 
                 if (method == HttpVerb.GET || method == HttpVerb.DELETE)
