@@ -107,8 +107,8 @@ namespace TimeTrackerWidget.ExternalTrackers.Paymo.Paymo3
         public void AddEntry(DateTime start, DateTime end, int taskId, string message)
         {
             this.RetrieveResponse("entries",
-                   "{\"start_time\":\"" + start.ToString("yyyy-MM-ddTHH:mm") + ":00+01:00\",\"end_time\":\"" + end.ToString("yyyy-MM-ddTHH:mm") +
-                   ":00+01:00\",\"task_id\":\"" + taskId + "\",\"description\":\"" + message + "\"}",
+                   "{\"start_time\":\"" + start.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm") + ":00+00:00\",\"end_time\":\"" + end.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm") +
+                   ":00+00:00\",\"task_id\":\"" + taskId + "\",\"description\":\"" + message + "\"}",
                    null, HttpVerb.POST, "application/json");
         }
 
@@ -121,8 +121,8 @@ namespace TimeTrackerWidget.ExternalTrackers.Paymo.Paymo3
             else
             {
                 this.RetrieveResponse(@"entries/" + entryId,
-                        "{\"duration\":\"" + end.Subtract(start).TotalSeconds + "\",\"start_time\":\"" + start.ToString("yyyy-MM-ddTHH:mm") + ":00+01:00\",\"end_time\":\"" + end.ToString("yyyy-MM-ddTHH:mm") +
-                        ":00+01:00\",\"task_id\":\"" + taskId + "\",\"description\":\"" + message + "\",\"id\":\"" + entryId.ToString() + "\"}",
+                        "{\"duration\":\"" + end.Subtract(start).TotalSeconds + "\",\"start_time\":\"" + start.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm") + ":00+00:00\",\"end_time\":\"" + end.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm") +
+                        ":00+00:00\",\"task_id\":\"" + taskId + "\",\"description\":\"" + message + "\",\"id\":\"" + entryId.ToString() + "\"}",
                         null, HttpVerb.PUT, "application/json");
             }
         }
