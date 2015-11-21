@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "TimeTrackerWidget"
-#define MyAppVersion "0.5.4"
+#define MyAppVersion "2.0.0"
 #define MyAppURL "https://sourceforge.net/projects/timetrackerwidget/"
 #define MyAppExeName "TimeTrackerWidget.exe"
 

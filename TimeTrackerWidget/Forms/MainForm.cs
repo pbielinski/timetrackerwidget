@@ -119,10 +119,10 @@ namespace TimeTrackerWidget.forms
 
         private void runTaskButton_Click(object sender, EventArgs e)
         {
-            StartTimer();
+            ToogleTimer();
         }
 
-        private void StartTimer()
+        private void ToogleTimer()
         {
             RunTaskEnable = (RunTaskEnable) ? false : true;
             if (RunTaskEnable)
@@ -155,6 +155,7 @@ namespace TimeTrackerWidget.forms
                 this.timerRunnerTask.Enabled = false;
                 Timer = 0;
                 FormatTime();
+                this.SaveLastSettings();
             }
         }
 
@@ -440,6 +441,68 @@ namespace TimeTrackerWidget.forms
             this.uiEventEdit1.Visible = false;
             this.panelAll.Visible = true;
             this.panel1.Visible = true;
+        }
+
+        private void buttonQuickScrum_Click(object sender, EventArgs e)
+        {
+            QuickSet("[DEV] Wspólne", "Scrum", "", "", "Development");
+        }
+
+        private void QuickSet(string paymoProject, string paymoTask, string redmineIssue, string redmineComment, string redmineKind)
+        {
+            if (RunTaskEnable)
+                ToogleTimer();            
+
+            textBoxRedmineIssueNo.Text = redmineIssue;
+            commentTextBox.Text = redmineComment;
+            comboBoxPaymoProjects.SelectedIndex = comboBoxPaymoProjects.FindString(paymoProject);
+            comboBoxPaymoTasks.SelectedIndex = comboBoxPaymoTasks.FindString(paymoTask);
+            comboBoxRedmineActivity.SelectedIndex = comboBoxRedmineActivity.FindString(redmineKind);
+            ToogleTimer();
+        }
+        
+        private void SaveLastSettings()
+        {
+            //save last
+            if (lastTimeSetting == null)
+                lastTimeSetting = new LastTimeSetting();
+            lastTimeSetting.paymoProject = this.comboBoxPaymoProjects.Text;
+            lastTimeSetting.paymoTask = this.comboBoxPaymoTasks.Text;
+            lastTimeSetting.redmineComment = this.commentTextBox.Text;
+            lastTimeSetting.redmineIssue = this.textBoxRedmineIssueNo.Text;
+            lastTimeSetting.redmineKind = this.comboBoxRedmineActivity.Text;
+            this.buttonQuickLast.Text = lastTimeSetting.ToString();
+            this.buttonQuickLast.Visible = true;
+        }
+
+        private void buttonQuickConsult_Click(object sender, EventArgs e)
+        {
+            QuickSet("[DEV] Wspólne", "Konsultacje w zespole", "", "", "Development");
+        }
+
+        private void buttonQuickOther_Click(object sender, EventArgs e)
+        {
+            QuickSet("[DEV] Wspólne", "Internal", "", "", "Development");
+        }
+        private LastTimeSetting lastTimeSetting = null;
+        private class LastTimeSetting
+        {
+            public string paymoProject = string.Empty;
+            public string paymoTask = string.Empty;
+            public string redmineIssue = string.Empty;
+            public string redmineComment = string.Empty;
+            public string redmineKind = string.Empty;
+            public override string ToString()
+            {
+                return paymoProject.Replace("[DEV]", "").Trim() + ":" + paymoTask + (redmineIssue != string.Empty ? "\r\n#" + redmineIssue : "");
+            }
+        }
+
+        private void buttonQuickLast_Click(object sender, EventArgs e)
+        {
+            QuickSet(lastTimeSetting.paymoProject, lastTimeSetting.paymoTask, 
+                lastTimeSetting.redmineIssue, lastTimeSetting.redmineComment, 
+                lastTimeSetting.redmineKind);
         }
     }
 }

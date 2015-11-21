@@ -47,6 +47,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.comboBoxPaymoProjects = new System.Windows.Forms.ComboBox();
             this.comboBoxPaymoTasks = new System.Windows.Forms.ComboBox();
+            this.panelQuick = new System.Windows.Forms.Panel();
+            this.buttonQuickLast = new System.Windows.Forms.Button();
+            this.buttonQuickConsult = new System.Windows.Forms.Button();
+            this.buttonQuickScrum = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.labelTimer = new System.Windows.Forms.Label();
             this.runTaskButton = new System.Windows.Forms.Button();
@@ -66,8 +71,9 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonTimerLogs = new System.Windows.Forms.Button();
             this.buttonTimer = new System.Windows.Forms.Button();
-            this.uiEventEdit1 = new TimeTrackerWidget.Forms.UI.UIEventEdit();
+            this.buttonQuickOther = new System.Windows.Forms.Button();
             this.uitImerLogs = new TimeTrackerWidget.Forms.UITImerLogs();
+            this.uiEventEdit1 = new TimeTrackerWidget.Forms.UI.UIEventEdit();
             this.panelAll.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.panelMainTop.SuspendLayout();
@@ -77,6 +83,8 @@
             this.panelPaymoWidget.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPaymoLoad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelQuick.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -112,6 +120,7 @@
             this.panelMainTop.Controls.Add(this.panelComment);
             this.panelMainTop.Controls.Add(this.panelRedmineWidget);
             this.panelMainTop.Controls.Add(this.panelPaymoWidget);
+            this.panelMainTop.Controls.Add(this.panelQuick);
             this.panelMainTop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMainTop.Location = new System.Drawing.Point(0, 0);
             this.panelMainTop.Name = "panelMainTop";
@@ -123,9 +132,9 @@
             this.panelComment.Controls.Add(this.label6);
             this.panelComment.Controls.Add(this.commentTextBox);
             this.panelComment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelComment.Location = new System.Drawing.Point(0, 72);
+            this.panelComment.Location = new System.Drawing.Point(0, 107);
             this.panelComment.Name = "panelComment";
-            this.panelComment.Size = new System.Drawing.Size(338, 168);
+            this.panelComment.Size = new System.Drawing.Size(338, 133);
             this.panelComment.TabIndex = 10;
             // 
             // label6
@@ -152,7 +161,7 @@
             this.commentTextBox.MaxLength = 255;
             this.commentTextBox.Name = "commentTextBox";
             this.commentTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.commentTextBox.Size = new System.Drawing.Size(319, 142);
+            this.commentTextBox.Size = new System.Drawing.Size(319, 107);
             this.commentTextBox.TabIndex = 9;
             this.commentTextBox.Text = "";
             // 
@@ -165,7 +174,7 @@
             this.panelRedmineWidget.Controls.Add(this.textBoxRedmineIssueNo);
             this.panelRedmineWidget.Controls.Add(this.label4);
             this.panelRedmineWidget.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelRedmineWidget.Location = new System.Drawing.Point(0, 36);
+            this.panelRedmineWidget.Location = new System.Drawing.Point(0, 71);
             this.panelRedmineWidget.Name = "panelRedmineWidget";
             this.panelRedmineWidget.Size = new System.Drawing.Size(338, 36);
             this.panelRedmineWidget.TabIndex = 9;
@@ -234,7 +243,7 @@
             this.panelPaymoWidget.Controls.Add(this.comboBoxPaymoProjects);
             this.panelPaymoWidget.Controls.Add(this.comboBoxPaymoTasks);
             this.panelPaymoWidget.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPaymoWidget.Location = new System.Drawing.Point(0, 0);
+            this.panelPaymoWidget.Location = new System.Drawing.Point(0, 35);
             this.panelPaymoWidget.Name = "panelPaymoWidget";
             this.panelPaymoWidget.Size = new System.Drawing.Size(338, 36);
             this.panelPaymoWidget.TabIndex = 11;
@@ -283,6 +292,68 @@
             this.comboBoxPaymoTasks.Size = new System.Drawing.Size(166, 28);
             this.comboBoxPaymoTasks.TabIndex = 18;
             this.comboBoxPaymoTasks.SelectedIndexChanged += new System.EventHandler(this.comboBoxPaymoTasks_SelectedIndexChanged);
+            // 
+            // panelQuick
+            // 
+            this.panelQuick.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.panelQuick.Controls.Add(this.buttonQuickOther);
+            this.panelQuick.Controls.Add(this.buttonQuickLast);
+            this.panelQuick.Controls.Add(this.buttonQuickConsult);
+            this.panelQuick.Controls.Add(this.buttonQuickScrum);
+            this.panelQuick.Controls.Add(this.pictureBox3);
+            this.panelQuick.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelQuick.Location = new System.Drawing.Point(0, 0);
+            this.panelQuick.Name = "panelQuick";
+            this.panelQuick.Size = new System.Drawing.Size(338, 35);
+            this.panelQuick.TabIndex = 13;
+            // 
+            // buttonQuickLast
+            // 
+            this.buttonQuickLast.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonQuickLast.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonQuickLast.Location = new System.Drawing.Point(210, 0);
+            this.buttonQuickLast.Name = "buttonQuickLast";
+            this.buttonQuickLast.Size = new System.Drawing.Size(125, 34);
+            this.buttonQuickLast.TabIndex = 24;
+            this.buttonQuickLast.Text = "[LAST]\r\nasd";
+            this.buttonQuickLast.UseVisualStyleBackColor = true;
+            this.buttonQuickLast.Visible = false;
+            this.buttonQuickLast.Click += new System.EventHandler(this.buttonQuickLast_Click);
+            // 
+            // buttonQuickConsult
+            // 
+            this.buttonQuickConsult.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonQuickConsult.Font = new System.Drawing.Font("Arial", 6F);
+            this.buttonQuickConsult.Location = new System.Drawing.Point(98, 0);
+            this.buttonQuickConsult.Name = "buttonQuickConsult";
+            this.buttonQuickConsult.Size = new System.Drawing.Size(55, 35);
+            this.buttonQuickConsult.TabIndex = 23;
+            this.buttonQuickConsult.Text = "Konsultacje";
+            this.buttonQuickConsult.UseVisualStyleBackColor = true;
+            this.buttonQuickConsult.Click += new System.EventHandler(this.buttonQuickConsult_Click);
+            // 
+            // buttonQuickScrum
+            // 
+            this.buttonQuickScrum.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonQuickScrum.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonQuickScrum.Location = new System.Drawing.Point(41, 0);
+            this.buttonQuickScrum.Name = "buttonQuickScrum";
+            this.buttonQuickScrum.Size = new System.Drawing.Size(57, 35);
+            this.buttonQuickScrum.TabIndex = 22;
+            this.buttonQuickScrum.Text = "SCRUM";
+            this.buttonQuickScrum.UseVisualStyleBackColor = true;
+            this.buttonQuickScrum.Click += new System.EventHandler(this.buttonQuickScrum_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(10, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(25, 35);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox3.TabIndex = 21;
+            this.pictureBox3.TabStop = false;
             // 
             // tableLayoutPanel1
             // 
@@ -353,20 +424,20 @@
             this.zamknijToolStripMenuItem,
             this.zamknijToolStripMenuItem1});
             this.plikToolStripMenuItem.Name = "plikToolStripMenuItem";
-            this.plikToolStripMenuItem.Size = new System.Drawing.Size(34, 20);
+            this.plikToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.plikToolStripMenuItem.Text = "Plik";
             // 
             // zamknijToolStripMenuItem
             // 
             this.zamknijToolStripMenuItem.Name = "zamknijToolStripMenuItem";
-            this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.zamknijToolStripMenuItem.Text = "Ustawienia";
             this.zamknijToolStripMenuItem.Click += new System.EventHandler(this.zamknijToolStripMenuItem_Click);
             // 
             // zamknijToolStripMenuItem1
             // 
             this.zamknijToolStripMenuItem1.Name = "zamknijToolStripMenuItem1";
-            this.zamknijToolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
+            this.zamknijToolStripMenuItem1.Size = new System.Drawing.Size(131, 22);
             this.zamknijToolStripMenuItem1.Text = "Zamknij";
             this.zamknijToolStripMenuItem1.Click += new System.EventHandler(this.zamknijToolStripMenuItem1_Click);
             // 
@@ -391,25 +462,25 @@
             this.close});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(117, 54);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(118, 54);
             // 
             // open
             // 
             this.open.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.open.Name = "open";
-            this.open.Size = new System.Drawing.Size(116, 22);
+            this.open.Size = new System.Drawing.Size(117, 22);
             this.open.Text = "Otwórz";
             this.open.Click += new System.EventHandler(this.open_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(113, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(114, 6);
             // 
             // close
             // 
             this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(116, 22);
+            this.close.Size = new System.Drawing.Size(117, 22);
             this.close.Text = "Zamknij";
             this.close.Click += new System.EventHandler(this.close_Click);
             // 
@@ -481,17 +552,17 @@
             this.buttonTimer.UseVisualStyleBackColor = false;
             this.buttonTimer.Click += new System.EventHandler(this.buttonTimer_Click);
             // 
-            // uiEventEdit1
+            // buttonQuickOther
             // 
-            this.uiEventEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiEventEdit1.Location = new System.Drawing.Point(0, 24);
-            this.uiEventEdit1.Name = "uiEventEdit1";
-            this.uiEventEdit1.Size = new System.Drawing.Size(338, 282);
-            this.uiEventEdit1.TabIndex = 4;
-            this.uiEventEdit1.Visible = false;
-            this.uiEventEdit1.OnSaveClick += new System.EventHandler(this.uiEventEdit1_OnSaveClick);
-            this.uiEventEdit1.OnDeleteClick += new System.EventHandler(this.uiEventEdit1_OnDeleteClick);
-            this.uiEventEdit1.OnCancelClick += new System.EventHandler(this.uiEventEdit1_OnCancelClick);
+            this.buttonQuickOther.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonQuickOther.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonQuickOther.Location = new System.Drawing.Point(154, 0);
+            this.buttonQuickOther.Name = "buttonQuickOther";
+            this.buttonQuickOther.Size = new System.Drawing.Size(56, 35);
+            this.buttonQuickOther.TabIndex = 25;
+            this.buttonQuickOther.Text = "Inne";
+            this.buttonQuickOther.UseVisualStyleBackColor = true;
+            this.buttonQuickOther.Click += new System.EventHandler(this.buttonQuickOther_Click);
             // 
             // uitImerLogs
             // 
@@ -502,14 +573,26 @@
             this.uitImerLogs.TabIndex = 3;
             this.uitImerLogs.OnRowClick += new TimeTrackerWidget.Forms.UI.UIEntryLogRow.EventClick(this.uitImerLogs_OnRowClick);
             // 
+            // uiEventEdit1
+            // 
+            this.uiEventEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiEventEdit1.Location = new System.Drawing.Point(0, 0);
+            this.uiEventEdit1.Name = "uiEventEdit1";
+            this.uiEventEdit1.Size = new System.Drawing.Size(338, 306);
+            this.uiEventEdit1.TabIndex = 4;
+            this.uiEventEdit1.Visible = false;
+            this.uiEventEdit1.OnSaveClick += new System.EventHandler(this.uiEventEdit1_OnSaveClick);
+            this.uiEventEdit1.OnDeleteClick += new System.EventHandler(this.uiEventEdit1_OnDeleteClick);
+            this.uiEventEdit1.OnCancelClick += new System.EventHandler(this.uiEventEdit1_OnCancelClick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(338, 356);
-            this.Controls.Add(this.uiEventEdit1);
             this.Controls.Add(this.panelAll);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.uiEventEdit1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.MainMenuStrip = this.menuStrip1;
@@ -529,6 +612,8 @@
             this.panelPaymoWidget.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPaymoLoad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelQuick.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -566,13 +651,8 @@
         private System.Windows.Forms.ComboBox comboBoxRedmineActivity;
         private System.Windows.Forms.TextBox textBoxRedmineIssueNo;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panelPaymoWidget;
-        private System.Windows.Forms.ComboBox comboBoxPaymoProjects;
-        private System.Windows.Forms.ComboBox comboBoxPaymoTasks;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.ComponentModel.BackgroundWorker backgroundWorkerPaymoProjects;
-        private System.Windows.Forms.PictureBox pictureBoxPaymoLoad;
         private System.Windows.Forms.Button button1;
         private Forms.UITImerLogs uitImerLogs;
         private System.Windows.Forms.Panel panel1;
@@ -580,6 +660,17 @@
         private System.Windows.Forms.Button buttonTimerLogs;
         private System.Windows.Forms.Button buttonTimer;
         private Forms.UI.UIEventEdit uiEventEdit1;
+        private System.Windows.Forms.Panel panelQuick;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Panel panelPaymoWidget;
+        private System.Windows.Forms.PictureBox pictureBoxPaymoLoad;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox comboBoxPaymoProjects;
+        private System.Windows.Forms.ComboBox comboBoxPaymoTasks;
+        private System.Windows.Forms.Button buttonQuickLast;
+        private System.Windows.Forms.Button buttonQuickConsult;
+        private System.Windows.Forms.Button buttonQuickScrum;
+        private System.Windows.Forms.Button buttonQuickOther;
     }
 }
 
