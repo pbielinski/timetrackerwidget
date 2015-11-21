@@ -48,6 +48,7 @@
             this.comboBoxPaymoProjects = new System.Windows.Forms.ComboBox();
             this.comboBoxPaymoTasks = new System.Windows.Forms.ComboBox();
             this.panelQuick = new System.Windows.Forms.Panel();
+            this.buttonQuickOther = new System.Windows.Forms.Button();
             this.buttonQuickLast = new System.Windows.Forms.Button();
             this.buttonQuickConsult = new System.Windows.Forms.Button();
             this.buttonQuickScrum = new System.Windows.Forms.Button();
@@ -56,6 +57,7 @@
             this.labelTimer = new System.Windows.Forms.Label();
             this.runTaskButton = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.uitImerLogs = new TimeTrackerWidget.Forms.UITImerLogs();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zamknijToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,8 +73,6 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonTimerLogs = new System.Windows.Forms.Button();
             this.buttonTimer = new System.Windows.Forms.Button();
-            this.buttonQuickOther = new System.Windows.Forms.Button();
-            this.uitImerLogs = new TimeTrackerWidget.Forms.UITImerLogs();
             this.uiEventEdit1 = new TimeTrackerWidget.Forms.UI.UIEventEdit();
             this.panelAll.SuspendLayout();
             this.panelMain.SuspendLayout();
@@ -307,13 +307,25 @@
             this.panelQuick.Size = new System.Drawing.Size(338, 35);
             this.panelQuick.TabIndex = 13;
             // 
+            // buttonQuickOther
+            // 
+            this.buttonQuickOther.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonQuickOther.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonQuickOther.Location = new System.Drawing.Point(154, 0);
+            this.buttonQuickOther.Name = "buttonQuickOther";
+            this.buttonQuickOther.Size = new System.Drawing.Size(56, 35);
+            this.buttonQuickOther.TabIndex = 25;
+            this.buttonQuickOther.Text = "Inne";
+            this.buttonQuickOther.UseVisualStyleBackColor = true;
+            this.buttonQuickOther.Click += new System.EventHandler(this.buttonQuickOther_Click);
+            // 
             // buttonQuickLast
             // 
             this.buttonQuickLast.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonQuickLast.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonQuickLast.Location = new System.Drawing.Point(210, 0);
             this.buttonQuickLast.Name = "buttonQuickLast";
-            this.buttonQuickLast.Size = new System.Drawing.Size(125, 34);
+            this.buttonQuickLast.Size = new System.Drawing.Size(125, 35);
             this.buttonQuickLast.TabIndex = 24;
             this.buttonQuickLast.Text = "[LAST]\r\nasd";
             this.buttonQuickLast.UseVisualStyleBackColor = true;
@@ -407,6 +419,15 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "1420406368_play-circle-full-24.png");
             this.imageList1.Images.SetKeyName(1, "1420406397_stop-24.png");
+            // 
+            // uitImerLogs
+            // 
+            this.uitImerLogs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uitImerLogs.Location = new System.Drawing.Point(0, 0);
+            this.uitImerLogs.Name = "uitImerLogs";
+            this.uitImerLogs.Size = new System.Drawing.Size(338, 282);
+            this.uitImerLogs.TabIndex = 3;
+            this.uitImerLogs.OnRowClick += new TimeTrackerWidget.Forms.UI.UIEntryLogRow.EventClick(this.uitImerLogs_OnRowClick);
             // 
             // menuStrip1
             // 
@@ -551,27 +572,6 @@
             this.buttonTimer.Text = "Timer";
             this.buttonTimer.UseVisualStyleBackColor = false;
             this.buttonTimer.Click += new System.EventHandler(this.buttonTimer_Click);
-            // 
-            // buttonQuickOther
-            // 
-            this.buttonQuickOther.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.buttonQuickOther.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonQuickOther.Location = new System.Drawing.Point(154, 0);
-            this.buttonQuickOther.Name = "buttonQuickOther";
-            this.buttonQuickOther.Size = new System.Drawing.Size(56, 35);
-            this.buttonQuickOther.TabIndex = 25;
-            this.buttonQuickOther.Text = "Inne";
-            this.buttonQuickOther.UseVisualStyleBackColor = true;
-            this.buttonQuickOther.Click += new System.EventHandler(this.buttonQuickOther_Click);
-            // 
-            // uitImerLogs
-            // 
-            this.uitImerLogs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uitImerLogs.Location = new System.Drawing.Point(0, 0);
-            this.uitImerLogs.Name = "uitImerLogs";
-            this.uitImerLogs.Size = new System.Drawing.Size(338, 282);
-            this.uitImerLogs.TabIndex = 3;
-            this.uitImerLogs.OnRowClick += new TimeTrackerWidget.Forms.UI.UIEntryLogRow.EventClick(this.uitImerLogs_OnRowClick);
             // 
             // uiEventEdit1
             // 

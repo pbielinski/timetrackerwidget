@@ -23,8 +23,6 @@ OutputBaseFilename=setup
 Compression=lzma
 SolidCompression=yes
 UninstallDisplayIcon={app}\TimeTrackerWidget.exe
-WizardSmallImageFile=setup.bmp
-WizardImageFile=setup_big.bmp
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
