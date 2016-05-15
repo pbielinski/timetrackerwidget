@@ -194,7 +194,7 @@
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Control;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Wingdings 3", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button1.Image = global::TimeTrackerWidget.Properties.Resources.navarrowright;
             this.button1.Location = new System.Drawing.Point(159, 6);
             this.button1.Name = "button1";
@@ -576,9 +576,9 @@
             // uiEventEdit1
             // 
             this.uiEventEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiEventEdit1.Location = new System.Drawing.Point(0, 0);
+            this.uiEventEdit1.Location = new System.Drawing.Point(0, 24);
             this.uiEventEdit1.Name = "uiEventEdit1";
-            this.uiEventEdit1.Size = new System.Drawing.Size(338, 306);
+            this.uiEventEdit1.Size = new System.Drawing.Size(338, 282);
             this.uiEventEdit1.TabIndex = 4;
             this.uiEventEdit1.Visible = false;
             this.uiEventEdit1.OnSaveClick += new System.EventHandler(this.uiEventEdit1_OnSaveClick);
@@ -591,8 +591,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(338, 356);
             this.Controls.Add(this.panelAll);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.uiEventEdit1);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.MainMenuStrip = this.menuStrip1;
