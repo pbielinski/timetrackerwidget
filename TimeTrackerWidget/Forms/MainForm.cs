@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using TimeTrackerWidget.ExternalTrackers.Paymo.Paymo3;
 using TimeTrackerWidget.ExternalTrackers.Paymo3;
 using TimeTrackerWidget.ExternalTrackers.Redmine;
+using ZetaIpc.Runtime.Helper;
+using ZetaIpc.Runtime.Server;
 
 namespace TimeTrackerWidget.forms
 {
@@ -45,6 +47,28 @@ namespace TimeTrackerWidget.forms
             ReloadSettings();
 
             this.ShowMainPanel(this.panelMain);
+            
+            var port = FreePortHelper.GetFreePort();
+            var s = new IpcServer();
+            s.Start(port);
+            s.ReceivedRequest += S_ReceivedRequest;
+            Properties.Settings.Default.IPCPort = port;
+            Properties.Settings.Default.Save();
+        }
+
+
+        public delegate void IPCDelegate(string action);
+        
+        private void S_ReceivedRequest(object sender, ReceivedRequestEventArgs e)
+        {
+            this.BeginInvoke(new IPCDelegate(IPCDelegateCallback), "test");
+            e.Response = "OK";
+            e.Handled = true;
+        }
+
+        private void IPCDelegateCallback(string action)
+        {
+            MessageBox.Show(action);
         }
 
         public void ReloadSettings()

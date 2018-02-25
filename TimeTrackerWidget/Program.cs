@@ -4,6 +4,9 @@ using System.Linq;
 using System.Net;
 using System.Windows.Forms;
 using TimeTrackerWidget.forms;
+using ZetaIpc.Runtime.Client;
+using ZetaIpc.Runtime.Helper;
+using ZetaIpc.Runtime.Server;
 
 namespace TimeTrackerWidget
 {
@@ -13,11 +16,17 @@ namespace TimeTrackerWidget
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             if (!SingleInstance.Start())
             {
-                SingleInstance.ShowFirstInstance();
+                if (args.Length > 0)
+                {
+                    var c = new IpcClient();
+                    c.Initialize(Properties.Settings.Default.IPCPort);
+                    c.Send(args[0]);
+                    SingleInstance.ShowFirstInstance();
+                }
                 return;
             }
 
@@ -35,7 +44,7 @@ namespace TimeTrackerWidget
             ServicePointManager
              .ServerCertificateValidationCallback +=
              (sender, cert, chain, sslPolicyErrors) => true;
-
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -51,6 +60,5 @@ namespace TimeTrackerWidget
 
             SingleInstance.Stop();
         }
-
     }
 }

@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "TimeTrackerWidget"
-#define MyAppVersion "2.0.1"
+#define MyAppVersion "2.0.2"
 #define MyAppURL "https://sourceforge.net/projects/timetrackerwidget/"
 #define MyAppExeName "TimeTrackerWidget.exe"
 
@@ -19,7 +19,7 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
-OutputBaseFilename=setup
+OutputBaseFilename=ttw-setup
 Compression=lzma
 SolidCompression=yes
 UninstallDisplayIcon={app}\TimeTrackerWidget.exe
@@ -34,6 +34,7 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 
 [Files]
 Source: "bin\Release\TimeTrackerWidget.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "bin\Release\ZetaIpc.dll"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
