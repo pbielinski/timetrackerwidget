@@ -65,6 +65,11 @@ namespace TimeTrackerWidget.Forms
                 UIEntryLogRow lastRow = null;
                 foreach (var item in entries.Entry)
                 {
+                    if(item.User.Email != TimeTrackerWidget.Properties.Settings.Default.PaymoLogin)
+                    {
+                        continue;
+                    }
+
                     DateTime startTime = item.StartTime.ToLocalTime();
                     DateTime endTime = item.EndTime.ToLocalTime();
                     conflict = false;

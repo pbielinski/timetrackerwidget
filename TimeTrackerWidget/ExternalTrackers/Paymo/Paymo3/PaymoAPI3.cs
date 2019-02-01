@@ -42,7 +42,7 @@ namespace TimeTrackerWidget.ExternalTrackers.Paymo.Paymo3
             string timeFrom = date.ToString("yyyy-MM-ddT") + "00:00:00.000Z";
             string timeTo = date.ToString("yyyy-MM-ddT") + "23:59:59.000Z";
 
-            return (Entries)this.RetrieveResponse("entries", "include=task.name&where=time_interval in (\"" + timeFrom + "\",\"" + timeTo + "\") and user_email=" + this.User, typeof(Entries), HttpVerb.GET);
+            return (Entries)this.RetrieveResponse("entries", "include=task.name,user.email&where=time_interval in (\"" + timeFrom + "\",\"" + timeTo + "\")", typeof(Entries), HttpVerb.GET);
         }
 
         private object RetrieveResponse(string action, string parameters, Type responseType, HttpVerb method)

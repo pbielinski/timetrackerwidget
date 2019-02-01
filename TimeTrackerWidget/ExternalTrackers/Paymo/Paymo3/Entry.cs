@@ -34,6 +34,13 @@ namespace TimeTrackerWidget.ExternalTrackers.Paymo3
     }
 
     [Serializable()]
+    public class User
+    {
+        [System.Xml.Serialization.XmlElement("email")]
+        public string Email { get; set; }
+    }
+
+    [Serializable()]
     public class Entry
     {
         [System.Xml.Serialization.XmlElement("id")]
@@ -56,5 +63,8 @@ namespace TimeTrackerWidget.ExternalTrackers.Paymo3
 
         [System.Xml.Serialization.XmlElement("task")]
         public Task Task { get; set; }
+
+        [System.Xml.Serialization.XmlElement("user")]
+        public User User { get; set; }
     }
 }
