@@ -335,12 +335,12 @@
             // buttonQuickConsult
             // 
             this.buttonQuickConsult.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.buttonQuickConsult.Font = new System.Drawing.Font("Arial", 6F);
+            this.buttonQuickConsult.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonQuickConsult.Location = new System.Drawing.Point(98, 0);
             this.buttonQuickConsult.Name = "buttonQuickConsult";
             this.buttonQuickConsult.Size = new System.Drawing.Size(55, 35);
             this.buttonQuickConsult.TabIndex = 23;
-            this.buttonQuickConsult.Text = "Konsultacje";
+            this.buttonQuickConsult.Text = "XWM";
             this.buttonQuickConsult.UseVisualStyleBackColor = true;
             this.buttonQuickConsult.Click += new System.EventHandler(this.buttonQuickConsult_Click);
             // 
@@ -352,7 +352,7 @@
             this.buttonQuickScrum.Name = "buttonQuickScrum";
             this.buttonQuickScrum.Size = new System.Drawing.Size(57, 35);
             this.buttonQuickScrum.TabIndex = 22;
-            this.buttonQuickScrum.Text = "SCRUM";
+            this.buttonQuickScrum.Text = "WebX";
             this.buttonQuickScrum.UseVisualStyleBackColor = true;
             this.buttonQuickScrum.Click += new System.EventHandler(this.buttonQuickScrum_Click);
             // 

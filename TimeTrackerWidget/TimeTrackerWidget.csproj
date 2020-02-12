@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TimeTrackerWidget</RootNamespace>
     <AssemblyName>TimeTrackerWidget</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetZone>LocalIntranet</TargetZone>
     <GenerateManifests>false</GenerateManifests>

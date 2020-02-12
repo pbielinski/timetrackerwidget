@@ -469,7 +469,7 @@ namespace TimeTrackerWidget.forms
 
         private void buttonQuickScrum_Click(object sender, EventArgs e)
         {
-            QuickSet("[DEV] Wspólne", "Scrum", "", "", "Development");
+            QuickSet("[DEV] Produkty", "WebX", "", "", "Development");
         }
 
         private void QuickSet(string paymoProject, string paymoTask, string redmineIssue, string redmineComment, string redmineKind)
@@ -501,7 +501,7 @@ namespace TimeTrackerWidget.forms
 
         private void buttonQuickConsult_Click(object sender, EventArgs e)
         {
-            QuickSet("[DEV] Wspólne", "Konsultacje w zespole", "", "", "Development");
+            QuickSet("[DEV] Produkty", "WorkMate", "", "", "Development");
         }
 
         private void buttonQuickOther_Click(object sender, EventArgs e)
